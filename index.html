@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="shortcut icon" href="favicon.png" type="image/x-icon">
+    <title>MZ Sanitary</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="materialize.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="index.html" class="brand-logo"> MZ Sanitary </a>
+            <a href="#" data-activates="mobile-demo" class="button-collapse"><img src="menu.png" alt="Menu"></a>
+            <ul class="right hide-on-med-and-down">
+                <li><a href="pweight.html"> تیاری وزن </a></li>
+                <li><a href="reduction.html"> فیصد کم </a></li>
+                <li><a href="percentage.html"> فیصد زیادہ </a></li>
+                <li><a href="index.html" class="activeTab"> قیمت نکالیں </a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="index.html" class="activeTab"> قیمت نکالیں </a></li>
+                <li><a href="percentage.html"> فیصد زیادہ </a></li>
+                <li><a href="reduction.html"> فیصد کم </a></li>
+                <li><a href="pweight.html"> تیاری وزن </a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container calculator">
+        <form name="calculator">
+            <div class="row">
+                <div class="col s6 m7 l3 offset-l2">
+                    <input type="number" name="raw_pittal" onkeypress="validate(event)">
+                </div>
+                <div class="col s6 m5 l4 names">
+                    ڈھلائی وزن یہاں لکھیں
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 m7 l3 offset-l2">
+                    <input type="number" name="prepare_weight" onkeypress="validate(event)">
+                </div>
+                <div class="col s6 m5 l4 names">
+                    تیاری وزن یہاں لکھیں
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 m7 l3 offset-l2">
+                    <input type="number" name="pittal_rate" onkeypress="validate(event)">
+                </div>
+                <div class="col s6 m5 l4 names">
+                    موجودہ پتل کی قیمت
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 m7 l3 offset-l2">
+                    <input type="number" name="dhalai_mazdori" onkeypress="validate(event)">
+                </div>
+                <div class="col s6 m5 l4 names">
+                    ڈھلائی کی مزدوری
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s6 m7 l3 offset-l2">
+                    <input type="number" name="kaam_mazdori" onkeypress="validate(event)">
+                </div>
+                <div class="col s6 m5 l4 names">
+                    کام کی مزدوری
+                </div>
+            </div>
+            <div class="row buttons">
+                <div class="col s6 m6 l6">
+                    <input type="reset" value="صاف کریں">
+                </div>
+                <div class="col s6 m6 l6">
+                    <input type="button" value="حساب کریں" onclick="javascript:raw();">
+                </div>
+            </div>
+            <div class="row results">
+                <div class="row">
+                    <div class="col s8 m5 offset-m3"><input type="text" name="choon" readonly></div>
+                    <div class="col s4 m3 name">چون</div>
+                </div>
+                <div class="row">
+                    <div class="col s8 m5 offset-m3"><input type="text" name="caat" readonly></div>
+                    <div class="col s4 m3 name">کاٹ</div>
+                </div>
+                <div class="row">
+                    <div class="col s8 m5 offset-m3"><input type="text" name="baqaya_pittal" readonly></div>
+                    <div class="col s4 m3 name">بقایا پتل</div>
+                </div>
+                <div class="row">
+                    <div class="col s8 m5 offset-m3"><input type="text" name="pittal_price" readonly></div>
+                    <div class="col s4 m3 name">پتل روپے</div>
+                </div>
+                <div class="row">
+                    <div class="col s8 m5 offset-m3"><input type="text" name="dhalai_price" readonly></div>
+                    <div class="col s4 m3 name">ڈھلائی روپے</div>
+                </div>
+            </div>
+            <div class="row rates">
+                <div class="row">
+                    <div class="col s12 center">
+                        <h4>اصلی قیمت</h4>
+                    </div>
+                </div>
+                <div class="row real">
+                    <div class="col s8 m5 offset-m3"><input type="text" name="our_price_without_mazduri" readonly></div>
+                    <div class="col s4 m3 name"> مزدوری کے بغیر</div>
+                </div>
+                <div class="row">
+                    <div class="col s8 m5 offset-m3"><input type="text" name="our_price_with_mazduri" readonly></div>
+                    <div class="col s4 m3 name"> مزدوری کے ساتھ</div>
+                </div>
+            </div>
+        </form>
+        <div class="row note">
+            <div class="col s12 m12 l12">
+                <p> <span>نوٹ</span> مزدوری کے ساتھ قیمت میں 90 روپے جمع کیے گئے ہیں۔ </p>
+            </div>
+        </div>
+        <div class="row copyright">
+            <div class="col s12 m12 l12">
+                copyright &copy;
+                <script>
+                    document.write(new Date().getFullYear());
+                </script>
+                <span>Ahmad</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="jquery.js"></script>
+    <script src="materialize.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
